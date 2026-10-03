@@ -2,12 +2,16 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#f4f6fb" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Livin' Preview" />
     <meta name="description" content="Preview desain dashboard Livin' by Mandiri. Informasi dan transaksi pada halaman ini hanya simulasi." />
     <meta name="color-scheme" content="light" />
     <title>Livin' by Mandiri — Beranda</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="app-icon.svg" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -41,6 +45,7 @@
           <span class="brand-name">livin'<small>by mandiri</small></span>
         </a>
         <div class="topbar-actions">
+          <button class="install-button" id="installButton" type="button" hidden>Install aplikasi</button>
           <button class="icon-button" id="notificationsButton" aria-label="Notifikasi">
             <svg class="icon"><use href="#icon-bell" /></svg>
             <span class="notification-dot"></span>
@@ -57,7 +62,7 @@
         <section class="welcome-row">
           <div>
             <p class="eyebrow" id="currentDate"></p>
-            <h1>Selamat pagi, Kelvin <span class="wave">✦</span></h1>
+            <h1><span id="greetingText">Selamat pagi</span>, Kelvin <span class="wave">✦</span></h1>
             <p class="welcome-subtitle">Mau atur keuanganmu hari ini?</p>
           </div>
         </section>
@@ -147,6 +152,7 @@
               <span>Investasi</span>
             </button>
           </div>
+          <div class="service-grid" id="serviceGrid" aria-live="polite"></div>
         </section>
 
         <section class="promo-card">
@@ -171,7 +177,7 @@
               <p class="eyebrow">Aktivitas rekening</p>
               <h2>Transaksi terakhir</h2>
             </div>
-            <button class="link-button" id="historyButton">Lihat semua <svg class="icon icon-small"><use href="#icon-chevron" /></svg></button>
+            <button class="link-button" id="historyButton" aria-expanded="false"><span id="historyButtonText">Lihat semua</span> <svg class="icon icon-small"><use href="#icon-chevron" /></svg></button>
           </div>
           <div class="transaction-list" id="transactionList">
             <article class="txn-card" data-name="Transfer Antar Bank Budi Santoso" data-type="transfer">
@@ -188,6 +194,21 @@
               <span class="txn-icon txn-income"><svg class="icon"><use href="#icon-down" /></svg></span>
               <span class="txn-copy"><strong>Gaji Bulanan</strong><small>Mandiri Payroll <span>·</span> 1 Okt 2026</small></span>
               <span class="amount positive">+Rp 9.500.000</span>
+            </article>
+            <article class="txn-card" data-name="Bayar Listrik PLN" data-type="tagihan" hidden>
+              <span class="txn-icon txn-bill"><svg class="icon"><use href="#icon-receipt" /></svg></span>
+              <span class="txn-copy"><strong>Bayar Listrik PLN</strong><small>PLN Pascabayar <span>·</span> 30 Sep 2026</small></span>
+              <span class="amount negative">−Rp 425.000</span>
+            </article>
+            <article class="txn-card" data-name="Top Up e-money" data-type="top up" hidden>
+              <span class="txn-icon txn-topup"><svg class="icon"><use href="#icon-plus" /></svg></span>
+              <span class="txn-copy"><strong>Top Up e-money</strong><small>Mandiri e-money <span>·</span> 29 Sep 2026</small></span>
+              <span class="amount negative">−Rp 200.000</span>
+            </article>
+            <article class="txn-card" data-name="Transfer dari Sinta" data-type="transfer pemasukan" hidden>
+              <span class="txn-icon txn-income"><svg class="icon"><use href="#icon-down" /></svg></span>
+              <span class="txn-copy"><strong>Transfer masuk</strong><small>Sinta <span>·</span> 28 Sep 2026</small></span>
+              <span class="amount positive">+Rp 500.000</span>
             </article>
             <p class="empty-state" id="emptyState" hidden>Tidak ada transaksi atau fitur yang cocok.</p>
           </div>
@@ -223,6 +244,29 @@
         <button class="menu-option" type="button" data-menu-target="Riwayat">Riwayat transaksi <svg class="icon icon-small"><use href="#icon-chevron" /></svg></button>
         <button class="menu-option" type="button" data-menu-target="Lifestyle">Layanan <svg class="icon icon-small"><use href="#icon-chevron" /></svg></button>
       </div>
+    </dialog>
+    <dialog class="menu-dialog shortcut-dialog" id="shortcutDialog" aria-labelledby="shortcutDialogTitle">
+      <form method="dialog" id="shortcutForm">
+        <div class="menu-dialog-header">
+          <div>
+            <p class="eyebrow">Personalisasi</p>
+            <h2 id="shortcutDialogTitle">Atur Quick Access</h2>
+          </div>
+          <button class="subtle-icon-button" type="button" id="closeShortcutButton" aria-label="Tutup pengaturan pintasan">×</button>
+        </div>
+        <p class="dialog-description">Pilih pintasan yang ingin ditampilkan di beranda.</p>
+        <p class="form-error" id="shortcutError" role="alert" hidden></p>
+        <div class="shortcut-options">
+          <label><input type="checkbox" name="shortcut" value="Transfer" checked /> Transfer</label>
+          <label><input type="checkbox" name="shortcut" value="QRIS" checked /> QRIS</label>
+          <label><input type="checkbox" name="shortcut" value="Bayar" checked /> Bayar</label>
+          <label><input type="checkbox" name="shortcut" value="Top Up" checked /> Top Up</label>
+        </div>
+        <div class="dialog-actions">
+          <button class="dialog-secondary" type="button" id="cancelShortcutButton">Batal</button>
+          <button class="dialog-primary" type="submit">Simpan pintasan</button>
+        </div>
+      </form>
     </dialog>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <noscript><p class="noscript-message">Aktifkan JavaScript untuk menggunakan pencarian dan interaksi preview ini.</p></noscript>

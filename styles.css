@@ -14,6 +14,26 @@
   --shadow: 0 14px 42px rgba(25, 44, 87, 0.07);
 }
 
+@media (max-width: 420px) {
+  .topbar-actions {
+    gap: 7px;
+  }
+
+  .install-button {
+    min-height: 34px;
+    padding: 0 8px;
+    font-size: 9px;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shortcut-dialog {
+    padding: 17px;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -114,6 +134,18 @@ button {
 .txn-card {
   display: flex;
   align-items: center;
+}
+
+.install-button {
+  min-height: 36px;
+  padding: 0 11px;
+  border: 1px solid #d9e3f5;
+  border-radius: 11px;
+  background: #f3f6ff;
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .brand {
@@ -647,6 +679,77 @@ button {
   color: #168667;
 }
 
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.service-card {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 12px;
+  border: 1px solid #edf0f5;
+  border-radius: 14px;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.service-card:hover,
+.service-card:focus-visible {
+  transform: translateY(-1px);
+  border-color: #cbd9f4;
+  box-shadow: 0 7px 16px rgba(25, 44, 87, 0.06);
+}
+
+.service-card-icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 12px;
+  background: #edf3ff;
+  color: #315bb6;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.service-card-copy {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 3px;
+}
+
+.service-card-copy strong {
+  overflow: hidden;
+  color: #27334e;
+  font-size: 10px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.service-card-copy small {
+  overflow: hidden;
+  color: #8993a5;
+  font-size: 9px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.service-card > .icon {
+  width: 14px;
+  height: 14px;
+  color: #9aa4b5;
+}
+
 .promo-card {
   position: relative;
   min-height: 200px;
@@ -824,6 +927,16 @@ button {
   color: var(--green);
 }
 
+.txn-bill {
+  background: #fff1e8;
+  color: #c96c37;
+}
+
+.txn-topup {
+  background: #f0eaff;
+  color: #7952bb;
+}
+
 .txn-copy {
   min-width: 0;
   flex: 1;
@@ -962,6 +1075,72 @@ button {
 .menu-dialog-options {
   display: grid;
   gap: 8px;
+}
+
+.dialog-description {
+  margin: -5px 0 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.form-error {
+  margin: 0 0 12px;
+  color: #b53b34;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.shortcut-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.shortcut-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 10px;
+  border: 1px solid #edf0f5;
+  border-radius: 11px;
+  color: #35435f;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.shortcut-options input {
+  accent-color: var(--blue);
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.dialog-primary,
+.dialog-secondary {
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dialog-primary {
+  background: var(--blue);
+  color: #fff;
+}
+
+.dialog-secondary {
+  border-color: #e8ecf3;
+  background: #fff;
+  color: #526078;
 }
 
 .menu-option {

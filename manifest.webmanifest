@@ -1,0 +1,21 @@
+{
+  "id": "./",
+  "name": "Livin' Dashboard Preview",
+  "short_name": "Livin' Preview",
+  "description": "Preview desain dashboard Livin'. Saldo dan transaksi hanya simulasi.",
+  "lang": "id",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f4f6fb",
+  "theme_color": "#f4f6fb",
+  "icons": [
+    {
+      "src": "./app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
