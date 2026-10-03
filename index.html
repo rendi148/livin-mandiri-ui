@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f6fb" />
+    <meta name="description" content="Preview desain dashboard Livin' by Mandiri. Informasi dan transaksi pada halaman ini hanya simulasi." />
+    <meta name="color-scheme" content="light" />
+    <title>Livin' by Mandiri — Beranda</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+      <symbol id="icon-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="icon-eye-off" viewBox="0 0 24 24"><path d="m3 3 18 18M10.6 10.6a2 2 0 0 0 2.8 2.8"/><path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.5 0 10 7 10 7a15.5 15.5 0 0 1-3.1 3.8M6.2 6.2C3.5 8 2 12 2 12s3.5 7 10 7c1.1 0 2.1-.2 3-.6"/></symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+      <symbol id="icon-qr" viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 14h2v6h-6v-2"/></symbol>
+      <symbol id="icon-receipt" viewBox="0 0 24 24"><path d="M5 3v18l3-2 4 2 4-2 3 2V3l-3 2-4-2-4 2-3-2Z"/><path d="M9 9h6M9 13h6"/></symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="icon-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18M7 15h3"/></symbol>
+      <symbol id="icon-bag" viewBox="0 0 24 24"><path d="M4 8h16l-1 13H5L4 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></symbol>
+      <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 19V5M4 19h17M7 15l4-4 3 2 6-7"/></symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1V10Z"/></symbol>
+      <symbol id="icon-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 2.6-6.4L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></symbol>
+      <symbol id="icon-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+      <symbol id="icon-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="icon-spark" viewBox="0 0 24 24"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3ZM19 16l1 2.5 2.5 1-2.5 1L19 23l-1-2.5-2.5-1 2.5-1 1-2.5Z"/></symbol>
+      <symbol id="icon-down" viewBox="0 0 24 24"><path d="M7 7h10v10M17 7 7 17"/></symbol>
+      <symbol id="icon-up" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    </svg>
+
+    <div class="app-shell" id="top">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Livin' by Mandiri beranda">
+          <span class="brand-mark">L</span>
+          <span class="brand-name">livin'<small>by mandiri</small></span>
+        </a>
+        <div class="topbar-actions">
+          <button class="icon-button" id="notificationsButton" aria-label="Notifikasi">
+            <svg class="icon"><use href="#icon-bell" /></svg>
+            <span class="notification-dot"></span>
+          </button>
+          <button class="profile-button" id="profileButton" aria-label="Profil Kelvin">
+            <span class="avatar">K</span>
+            <span class="profile-name">Kelvin</span>
+            <svg class="icon icon-small"><use href="#icon-chevron" /></svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="page-content">
+        <section class="welcome-row">
+          <div>
+            <p class="eyebrow" id="currentDate"></p>
+            <h1>Selamat pagi, Kelvin <span class="wave">✦</span></h1>
+            <p class="welcome-subtitle">Mau atur keuanganmu hari ini?</p>
+          </div>
+        </section>
+
+        <section class="overview-grid" aria-label="Ringkasan rekening dan akses cepat">
+          <article class="balance-card">
+            <div class="balance-card-top">
+              <div class="account-label">
+                <span class="account-symbol"><svg class="icon"><use href="#icon-card" /></svg></span>
+                <span>Mandiri Tabungan</span>
+                <span class="account-tag">Utama</span>
+              </div>
+              <button class="balance-toggle" id="toggleBalance" aria-label="Sembunyikan saldo">
+                <svg class="icon"><use href="#icon-eye" /></svg>
+              </button>
+            </div>
+            <p class="balance-caption">Total saldo</p>
+            <div class="balance-value" id="balanceValue">Rp 24.850.000</div>
+            <div class="account-footer">
+              <span>•••• 2021</span>
+              <button class="text-button" id="accountDetailsButton">Detail rekening <svg class="icon icon-small"><use href="#icon-chevron" /></svg></button>
+            </div>
+            <div class="balance-decoration decoration-one"></div>
+            <div class="balance-decoration decoration-two"></div>
+          </article>
+
+          <article class="quick-card">
+            <div class="section-title-row">
+              <div>
+                <p class="eyebrow">Transaksi favorit</p>
+                <h2>Quick Access</h2>
+              </div>
+              <button class="subtle-icon-button" id="editShortcutsButton" aria-label="Atur pintasan"><svg class="icon"><use href="#icon-more" /></svg></button>
+            </div>
+            <div class="action-grid" id="actionGrid">
+              <button class="action-tile" data-name="Transfer">
+                <span class="tile-icon icon-transfer"><svg class="icon"><use href="#icon-arrow" /></svg></span>
+                <span>Transfer</span>
+              </button>
+              <button class="action-tile" data-name="QRIS">
+                <span class="tile-icon icon-qris"><svg class="icon"><use href="#icon-qr" /></svg></span>
+                <span>QRIS</span>
+              </button>
+              <button class="action-tile" data-name="Bayar">
+                <span class="tile-icon icon-bill"><svg class="icon"><use href="#icon-receipt" /></svg></span>
+                <span>Bayar</span>
+              </button>
+              <button class="action-tile" data-name="Top Up">
+                <span class="tile-icon icon-topup"><svg class="icon"><use href="#icon-plus" /></svg></span>
+                <span>Top Up</span>
+              </button>
+            </div>
+          </article>
+        </section>
+
+        <section class="search-section" aria-label="Pencarian">
+          <label class="search-box" aria-label="Cari transaksi atau fitur">
+            <svg class="icon"><use href="#icon-search" /></svg>
+            <input id="searchInput" type="search" placeholder="Cari transaksi atau fitur" autocomplete="off" />
+            <kbd id="searchShortcut">Ctrl K</kbd>
+          </label>
+        </section>
+
+        <section class="services-section" id="services">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Jelajahi Livin'</p>
+              <h2>Layanan untukmu</h2>
+            </div>
+            <button class="link-button" id="allServicesButton">Semua layanan <svg class="icon icon-small"><use href="#icon-chevron" /></svg></button>
+          </div>
+          <div class="category-row" id="categoryRow">
+            <button class="category-item active" data-category="Keuangan" aria-pressed="true">
+              <span class="category-icon category-finance"><svg class="icon"><use href="#icon-card" /></svg></span>
+              <span>Keuangan</span>
+            </button>
+            <button class="category-item" data-category="Belanja" aria-pressed="false">
+              <span class="category-icon category-shopping"><svg class="icon"><use href="#icon-bag" /></svg></span>
+              <span>Belanja</span>
+            </button>
+            <button class="category-item" data-category="Produk" aria-pressed="false">
+              <span class="category-icon category-product"><svg class="icon"><use href="#icon-grid" /></svg></span>
+              <span>Produk</span>
+            </button>
+            <button class="category-item" data-category="Investasi" aria-pressed="false">
+              <span class="category-icon category-investment"><svg class="icon"><use href="#icon-chart" /></svg></span>
+              <span>Investasi</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="promo-card">
+          <div class="promo-content">
+            <span class="promo-label"><svg class="icon icon-small"><use href="#icon-spark" /></svg> PROMO PILIHAN</span>
+            <h2>Belanja makin untung,<br />cashback hingga 50 ribu</h2>
+            <p>Pakai QRIS Livin' di merchant pilihan.</p>
+            <button class="promo-button" id="promoButton">Lihat promo <svg class="icon icon-small"><use href="#icon-chevron" /></svg></button>
+          </div>
+          <div class="promo-art" aria-hidden="true">
+            <div class="promo-orbit orbit-one"></div>
+            <div class="promo-orbit orbit-two"></div>
+            <div class="promo-cash">Rp</div>
+            <span class="promo-sparkle sparkle-one">✦</span>
+            <span class="promo-sparkle sparkle-two">✦</span>
+          </div>
+        </section>
+
+        <section class="transactions-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Aktivitas rekening</p>
+              <h2>Transaksi terakhir</h2>
+            </div>
+            <button class="link-button" id="historyButton">Lihat semua <svg class="icon icon-small"><use href="#icon-chevron" /></svg></button>
+          </div>
+          <div class="transaction-list" id="transactionList">
+            <article class="txn-card" data-name="Transfer Antar Bank Budi Santoso" data-type="transfer">
+              <span class="txn-icon txn-transfer"><svg class="icon"><use href="#icon-up" /></svg></span>
+              <span class="txn-copy"><strong>Transfer Antar Bank</strong><small>Budi Santoso <span>·</span> Hari ini, 09:42</small></span>
+              <span class="amount negative">−Rp 1.250.000</span>
+            </article>
+            <article class="txn-card" data-name="QRIS Alfamart" data-type="qris">
+              <span class="txn-icon txn-qris"><svg class="icon"><use href="#icon-qr" /></svg></span>
+              <span class="txn-copy"><strong>QRIS Alfamart</strong><small>Hari ini, 08:15</small></span>
+              <span class="amount negative">−Rp 86.000</span>
+            </article>
+            <article class="txn-card" data-name="Gaji Bulanan" data-type="pemasukan">
+              <span class="txn-icon txn-income"><svg class="icon"><use href="#icon-down" /></svg></span>
+              <span class="txn-copy"><strong>Gaji Bulanan</strong><small>Mandiri Payroll <span>·</span> 1 Okt 2026</small></span>
+              <span class="amount positive">+Rp 9.500.000</span>
+            </article>
+            <p class="empty-state" id="emptyState" hidden>Tidak ada transaksi atau fitur yang cocok.</p>
+          </div>
+        </section>
+        <p class="prototype-note">Preview desain Livin' · Informasi rekening dan transaksi adalah data simulasi.</p>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Navigasi utama">
+        <button class="nav-item active" data-page="Beranda" aria-current="page">
+          <svg class="icon"><use href="#icon-home" /></svg><span>Beranda</span>
+        </button>
+        <button class="nav-item" data-page="Riwayat">
+          <svg class="icon"><use href="#icon-history" /></svg><span>Riwayat</span>
+        </button>
+        <button class="nav-item" data-page="Lifestyle">
+          <svg class="icon"><use href="#icon-grid" /></svg><span>Lifestyle</span>
+        </button>
+        <button class="nav-item" data-page="Menu">
+          <svg class="icon"><use href="#icon-more" /></svg><span>Menu</span>
+        </button>
+      </nav>
+    </div>
+    <dialog class="menu-dialog" id="menuDialog" aria-labelledby="menuDialogTitle">
+      <div class="menu-dialog-header">
+        <div>
+          <p class="eyebrow">Preview navigasi</p>
+          <h2 id="menuDialogTitle">Menu Livin'</h2>
+        </div>
+        <button class="subtle-icon-button" id="closeMenuButton" type="button" aria-label="Tutup menu">×</button>
+      </div>
+      <div class="menu-dialog-options">
+        <button class="menu-option" type="button" data-menu-target="Beranda">Beranda <svg class="icon icon-small"><use href="#icon-chevron" /></svg></button>
+        <button class="menu-option" type="button" data-menu-target="Riwayat">Riwayat transaksi <svg class="icon icon-small"><use href="#icon-chevron" /></svg></button>
+        <button class="menu-option" type="button" data-menu-target="Lifestyle">Layanan <svg class="icon icon-small"><use href="#icon-chevron" /></svg></button>
+      </div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <noscript><p class="noscript-message">Aktifkan JavaScript untuk menggunakan pencarian dan interaksi preview ini.</p></noscript>
+    <script src="script.js" defer></script>
+  </body>
+</html>
